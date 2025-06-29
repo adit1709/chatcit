@@ -981,7 +981,7 @@
             }
 
             try {
-                const res = await fetch('{{ route('user.chat-ai.new') }}', {
+                const res = await fetch('/user/chat-ai/new', {
                     method: 'POST',
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
