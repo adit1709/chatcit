@@ -147,20 +147,20 @@ class ChatAIController extends Controller
     }
 
     public function newTopic(Request $request)
-    {
-        $user = Auth::user();
+{
+    $user = Auth::user();
 
-        $topic = ChatTopic::create([
-            'user_id' => $user->id,
-            'title' => 'Topik Chat ' . now()->format('Y-m-d H:i:s'),
-        ]);
+    $topic = ChatTopic::create([
+        'user_id' => $user->id,
+        'title' => 'Topik Chat ' . now()->format('Y-m-d H:i:s'),
+    ]);
 
-        if ($request->expectsJson()) {
-            return response()->json([
-                'topic_id' => $topic->id,
-                'title' => $topic->title,
-            ]);
-        }
+    return response()->json([
+        'topic_id' => $topic->id,
+        'title' => $topic->title,
+    ]);
+}
+
 
         // fallback (jika ada akses GET manual)
         return redirect()->route('user.chat.by.topic', $topic->id);
