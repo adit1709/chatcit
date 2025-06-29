@@ -162,10 +162,6 @@ class ChatAIController extends Controller
 }
 
 
-        // fallback (jika ada akses GET manual)
-        return redirect()->route('user.chat.by.topic', $topic->id);
-    }
-
     public function renameTopic(Request $request, $id)
     {
         $request->validate([
